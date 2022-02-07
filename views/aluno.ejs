@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Comment</title>
+    <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Make a new comment</h1>
+    <form action="/aluno" method="post">
+        <section>
+            <label for="nome">Nome do aluno</label>
+            <input type="text" id="nome" placeholder="nome" name="nome">
+        </section>
+        <section>
+            <label for="num_aluno">Número de aluno</label>
+            <input type="text" id="num_aluno" placeholder="num_aluno" name="num_aluno">
+        </section>
+        <section>
+            <label for="Instituição">Intituição do aluno</label>
+            <input type="text" id="Instituição" placeholder="Instituição" name="Instituição">
+        </section>
+        <section>
+            <label for="Curso">Curso do aluno</label>
+            <input type="text" id="Curso" placeholder="Curso" name="Curso">
+        </section>
+        <section>
+            <label for="certificado">Certificado do aluno</label>
+            <input type="file" id="certificado" placeholder="certificado" name="certificado">
+        </section>
+        <button>Submit</button>
+    </form>
+    
+    <button type='button' id="findHashButton" onclick="find()" class="btn btn-primary"/>
+                        Procure o documento
+                    </button>
+    <div id="responseText"></div>
+    <a href="/aluno">Back to Index</a>
+    
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    -->
+    <!-- Aqui fica os ficheiros que provêm do público -->
+    <script src="http://localhost:3000/public/sha256.js"></script>
+    <script src="http://localhost:3000/public/web3.min.js"></script>
+    <script src="http://localhost:3000/public/notaryWebLib.js"></script>
+    <script src="http://localhost:3000/public/main.js"></script>
+</body>
+
+</html>
