@@ -30,12 +30,6 @@ let alunos = [
 ] 
 
 app.get("/", (req,res) => {
-    // Este bocado de código interaje com o sheetJS, por agora tira o largura do ficheiro excel, a ideia é implementar um ciclo que retira a informação célula a célula e cria um objeto.
-    const sheet = workbook.Sheets;
-    const len = sheet.Folha1['!ref'].slice(-1);
-    console.log(sheet);
-    console.log(len);
-    // Acaba aqui
     res.render("index.ejs", {alunos});
 });
 
@@ -53,6 +47,10 @@ app.post("/aluno", (req,res) => {
     alunos.push({nome, num_aluno, Instituição, Curso, certificado});
     res.redirect("/");
 });
+
+app.get("/excel_import", (req, res) => {
+    res.render("excel_import.ejs")
+})
 
 app.listen(3000, () => {
     console.log("http://localhost:3000/");
