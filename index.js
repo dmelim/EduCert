@@ -49,7 +49,16 @@ app.post("/aluno", (req,res) => {
 });
 
 app.get("/excel_import", (req, res) => {
-    res.render("excel_import.ejs")
+    res.render("excel_import.ejs");
+})
+
+app.post("/excel_import", (req, res) => {
+    console.log(Object.keys(req.body));
+    const object1 = JSON.parse(Object.keys(req.body));
+    console.log(object1);
+    const { nome, num_aluno, Instituição, Curso, certificado } = object1;
+    alunos.push(object1);
+    res.redirect("/");
 })
 
 app.listen(3000, () => {
