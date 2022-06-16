@@ -6,37 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Comment</title>
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
+    <style>
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+          }
+          .custom-file-input::before {
+            content: 'Select some files';
+            display: inline-block;
+            background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            font-weight: 700;
+            font-size: 10pt;
+          }
+          .custom-file-input:hover::before {
+            border-color: black;
+          }
+          .custom-file-input:active::before {
+            background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+          }
+    </style>
 </head>
 
 <body>
-    <h1>Make a new comment</h1>
-    <form action="/aluno" method="post">
+    <h1>Add Student Information</h1>
+    <form action="/aluno" method="Post">
         <section>
-            <label for="nome">Nome do aluno</label>
-            <input type="text" id="nome" placeholder="nome" name="nome">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="name" name="name">
         </section>
         <section>
-            <label for="num_aluno">Número de aluno</label>
-            <input type="text" id="num_aluno" placeholder="num_aluno" name="num_aluno">
+            <label for="num_student">Student Number</label>
+            <input type="text" id="num_student" placeholder="num_student" name="num_student">
         </section>
         <section>
-            <label for="Instituição">Intituição do aluno</label>
-            <input type="text" id="Instituição" placeholder="Instituição" name="Instituição">
+            <label for="class_final">Final Grade</label>
+            <input type="text" id="class_final" placeholder="class_final" name="class_final">
         </section>
         <section>
-            <label for="Curso">Curso do aluno</label>
-            <input type="text" id="Curso" placeholder="Curso" name="Curso">
+            <label for="Institution">University</label>
+            <input type="text" id="Institution" placeholder="Institution" name="Institution">
         </section>
         <section>
-            <label for="certificado">Certificado do aluno</label>
-            <input type="file" id="certificado" placeholder="certificado" name="certificado">
+            <label for="Course">Course</label>
+            <input type="text" id="Course" placeholder="Course" name="Course">
+        </section>
+        <section>
+            <label for="conc_date">Conclusion Date</label>
+            <input type="date" id="conc_date" placeholder="conc_date" name="conc_date">
+        </section>
+        <section>
+            <label for="certificate">Student certificate</label>
+            <input type="file" id="certificate" placeholder="certificate" name="certificate" class="custom-file-input">
         </section>
         <button>Submit</button>
     </form>
     
     <button type='button' id="findHashButton" onclick="find()" class="btn btn-primary"/>
-                        Procure o documento
+                        Search document
                     </button>
+    <button type='button' id="sendHashButton" onclick="send()" class="btn btn-primary"/>
+                        Send
+                    </button>                
     <div id="responseText"></div>
     <a href="/aluno">Back to Index</a>
     

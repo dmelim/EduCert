@@ -9,7 +9,7 @@ função externa para completar algum tipo de rotina ou ação.*/
 
 function hashForFile(callback) {
     // Traz o input, de tipo ficheiro, do html para a função, e cria uma variável 
-    input = document.getElementById("certificado");
+    input = document.getElementById("certificate");
     /* this.files[0] é um objeto criado pelo jquery, files é uma propriedade que permite criar uma lista 
     com os ficheiros de determinado input, neste caso é criado uma variável, que guarda o input.files[0]
     o primeiro elemento deste array, sendo que estes objetos são sobrepostos, logo a lista não passa de 1 elemento
@@ -58,11 +58,11 @@ function hashForFile(callback) {
 function send () {
     hashForFile(function (err, hash) {
         notary_send(hash, function(err, tx) {
-            $("#responseText").html("<p>Documento submetido na rede Fantom com Sucesso.</p>"
-                + "<p>Valor do Hash: " + hash +"</p>"
-                + "<p>ID da Transação: " + tx +"</p>"
-                + "<p>O contrato tem o endereço: " + address +"</p>"
-                + "<p><b>A informação pode demorar alguns instantes até estar disponível.</b></p>"
+            $("#responseText").html("<p>Hash Value Submited with Sucess to Fantom Network.</p>"
+                + "<p>Hash Value: " + hash +"</p>"
+                + "<p>Transaction ID: " + tx +"</p>"
+                + "<p>The Contract has the following adress: " + address +"</p>"
+                + "<p><b>The information can take some time to be avaliable</b></p>"
             );
         });
     });
@@ -77,17 +77,17 @@ function find () {
                     ipc = "IPC";
                 }
                 else {
-                    ipc = "Não é IPC";
+                    ipc = "Not IPC";
                 }
-                $("#responseText").html("<p>Encontramos o seu documento na rede fantom!</p>"
-                    + "<p>Valor do Hash do Documento: " + hash + "</p>"
+                $("#responseText").html("<p>We found your document hash in the fantom Network!</p>"
+                    + "<p>Hash Value: " + hash + "</p>"
                     + "<p>Block No.: " + resultObj.blockNumber + "</p>"
-                    + "<p>Data de Assinatura: " + resultObj.mineTime + "</p>"
-                    + "<p>Assinado por: " + ipc + "(" + resultObj.messageSender + ")" + "</p>"
+                    + "<p>Signing Date: " + resultObj.mineTime + "</p>"
+                    + "<p>Signed by: " + ipc + "(" + resultObj.messageSender + ")" + "</p>"
                 );
             } else {
-                $("#responseText").html("<p>O documento não foi encontrado na rede fantom.</p>"
-                    + "<p>Valor do Hash do Documento: " + hash + "</p>"
+                $("#responseText").html("<p>We didn't found your document hash in the fantom Network!</p>"
+                    + "<p>Hash Value: " + hash + "</p>"
                 );
             }
         });

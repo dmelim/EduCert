@@ -18,33 +18,35 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
 
-let alunos = [
+let students = [
     {
-        nome: "Diogo",
-        num_aluno: "1234",
-        Instituição: "ISCAC",
-        Curso: "MCTES",
-        certificado: "diogo_melim.pdf"
+        name: "Diogo",
+        num_student: "1234",
+        class_final: "14",
+        Institution: "ISCAC",
+        Course: "MCTES",
+        conc_date: "14 Janeiro 2021",
+        certificate: "diogo_melim.pdf"
 
     }
 ] 
 
 app.get("/", (req,res) => {
-    res.render("index.ejs", {alunos});
+    res.render("index.ejs", {students});
 });
 
-app.get("/aluno/:id", (req,res) => {
+app.get("/student/:id", (req,res) => {
     const { id } = req.params;
     res.send(`${id}`);
 });
 
-app.get("/aluno", (req,res) => {
+app.get("/student", (req,res) => {
     res.render("aluno.ejs");
 });
  
-app.post("/aluno", (req,res) => {
-    const { nome, num_aluno, Instituição, Curso, certificado } = req.body;
-    alunos.push({nome, num_aluno, Instituição, Curso, certificado});
+app.post("/student", (req,res) => {
+    const { name, num_student, class_final, Institution, Course, conc_date, certificate } = req.body;
+    alunos.push({name, num_student, class_final, Institution, Course, conc_date, certificate});
     res.redirect("/");
 });
 
