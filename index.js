@@ -25,7 +25,7 @@ let students = [
         class_final: "14",
         Institution: "ISCAC",
         Course: "MCTES",
-        conc_date: "14 Janeiro 2021",
+        conc_date: "14 January 2021",
         certificate: "diogo_melim.pdf"
 
     }
