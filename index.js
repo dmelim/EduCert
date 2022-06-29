@@ -35,9 +35,16 @@ app.get("/", (req,res) => {
     res.render("index.ejs", {students});
 });
 
-app.get("/student/:id", (req,res) => {
-    const { id } = req.params;
-    res.send(`${id}`);
+app.get("/new-data", (req,res) => {
+    res.render("newData.ejs");
+});
+
+app.get("/search", (req,res) => {
+    res.render("search.ejs");
+});
+
+app.get("/login", (req,res) => {
+    res.render("login.ejs");
 });
 
 app.get("/student", (req,res) => {
@@ -50,7 +57,7 @@ app.post("/student", (req,res) => {
     res.redirect("/");
 });
 
-app.get("/excel_import", (req, res) => {
+app.get("/excel-import", (req, res) => {
     res.render("excel_import.ejs");
 })
 
