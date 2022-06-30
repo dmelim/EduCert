@@ -25,6 +25,19 @@
         </div>
       </nav>
 
+      <div class="container-fluid bg-dark border-bottom pt-5 pb-5">
+        <div class="px-4 pt-5 pb-5 text-center ">
+          <h1 class="display-4 fw-bold text-white">Search for a cert</h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4 text-white">Chose your file</p>
+            <div class="col mx-auto">
+              <input type="file" class="form-control" id="certificate" placeholder="certificate" name="certificate">
+              <button type="button" class="btn btn-primary mt-3" id="findHashButton" onclick="find()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
     <script src="http://localhost:3000/public/sha256.js"></script>
     <script src="http://localhost:3000/public/web3.min.js"></script>
