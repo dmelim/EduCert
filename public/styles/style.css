@@ -1,0 +1,18 @@
+.container-background {
+    height: 89vh;
+    width: 100%;
+    background-image: url("http://localhost:3000/public/static/BackGroundSite.svg");
+    background-position: center;
+    background-size: cover;
+    margin: 0%;
+
+  }
+  .background-body {
+    background-color: #00062A;
+  }
+  .navbar-color {
+    background-color: #00062A;
+  }
+  .nav a {
+    color: white;
+  }
