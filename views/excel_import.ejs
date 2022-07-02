@@ -5,11 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://localhost:3000/public/styles/style.css">
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
     <script src="http://localhost:3000/public/xlsx.full.min.js"></script>
 
 </head>
 <body>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">EduCert</a>
+            <div class="nav text-color-white">
+              <a class="nav-link  active" aria-current="page" href="/">Home</a>
+              <a class="nav-link " href="/new-data">New Data</a>
+              <a class="nav-link " href="/search">Search</a>
+              <a class="nav-link " href="/login">Login</a>
+          </div>
+        </div>
+      </nav>
     <input type="file" name="fileUpload" id="fileUpload" lang="en">
     <button id="button_import" lang="en">submit</button>
     <br>

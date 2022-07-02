@@ -47,7 +47,7 @@ app.get("/login", (req,res) => {
     res.render("login.ejs");
 });
 
-app.get("/student", (req,res) => {
+app.get("/new-data/one-entry", (req,res) => {
     res.render("aluno.ejs");
 });
  
@@ -57,7 +57,7 @@ app.post("/student", (req,res) => {
     res.redirect("/");
 });
 
-app.get("/excel-import", (req, res) => {
+app.get("/new-data/multiple-entry", (req, res) => {
     res.render("excel_import.ejs");
 })
 
