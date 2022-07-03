@@ -9,7 +9,7 @@
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
   </head>
 <body class="background-body">
-
+  <% if (user === "admin") { %>
     <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">EduCert</a>
@@ -23,12 +23,27 @@
                 </div>
               </div>
               <a class="nav-link white" href="/search">Search</a>
-              <a class="nav-link white" href="/login">Login</a>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item " href="#">Log Out</a>
+                </div>
+              </div>
           </div>
-          
         </div>
     </nav>
-
+    <%} else { %>
+      <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">EduCert</a>
+            <div class="nav text-color-white">
+              <a class="nav-link white active" aria-current="page" href="/">Home</a>
+              <a class="nav-link white" href="/search">Search</a>
+              <a class="nav-link white" href="/login">Login</a>
+          </div>
+        </div>
+    </nav>
+      <% } %>
     <div class="container-fluid container-background pt-5 pb-5 d-flex align-items-center justify-content-center">
       <div class="px-4 pt-5 pb-5 text-center">
         <h1 class="display-4 fw-bold text-white">Welcome to EduCert</h1>

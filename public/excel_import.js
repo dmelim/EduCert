@@ -15,7 +15,7 @@
                     globalJsonObject = XL_row_object;
                     console.log(globalJsonObject);
                     console.log(json_object);
-                    document.getElementById("jsonObject").innerHTML = json_object;
+                    document.getElementById("jsonObject").textContent = json_object;
                     
 
                 })
@@ -37,5 +37,4 @@ $("button").click(function(e) {
         const a = JSON.stringify(globalJsonObject[i]);
         $.post("http://localhost:3000/excel_import", a);
     }
-    //$.post("http://localhost:3000/excel_import", a).done(function(data){alert(`Data ${data}`);});
 });

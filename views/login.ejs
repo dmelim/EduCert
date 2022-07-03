@@ -8,27 +8,39 @@
     <link rel="stylesheet" href="http://localhost:3000/public/styles/style.css">
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
 </head>
-<body class="background-body">
+<body class="background-body body-margin">
 
-  <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">EduCert</a>
-        <div class="nav text-color-white">
-          <a class="nav-link white active" aria-current="page" href="/">Home</a>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">New Data</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item " href="/new-data/one-entry">One Entry</a>
-              <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
-            </div>
+  <% if (user === "admin") { %>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">EduCert</a>
+            <div class="nav text-color-white">
+              <a class="nav-link white active" aria-current="page" href="/">Home</a>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">New Data</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item " href="/new-data/one-entry">One Entry</a>
+                  <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
+                </div>
+              </div>
+              <a class="nav-link white" href="/search">Search</a>
+              <a class="nav-link white" href="#">Admin</a>
           </div>
-          <a class="nav-link white" href="/search">Search</a>
-          <a class="nav-link white" href="/login">Login</a>
-      </div>
-      
-    </div>
-</nav>
-      <section class="pb-5">
+        </div>
+    </nav>
+    <%} else { %>
+      <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">EduCert</a>
+            <div class="nav text-color-white">
+              <a class="nav-link white active" aria-current="page" href="/">Home</a>
+              <a class="nav-link white" href="/search">Search</a>
+              <a class="nav-link white" href="/login">Login</a>
+          </div>
+        </div>
+    </nav>
+      <% } %>
+      <section class="pb-5 pad-mar">
         <div class="container-fluid h-custom p-5 bg-light">
           <div class="row d-flex justify-content-center align-items-center m-5">
             <div class="col-md-9 col-lg-6 col-xl-5">
@@ -36,26 +48,24 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form class="form-control">
+              <form class="form-control" action="/login" method="Post">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3">Email address</label>
-                  <input type="email" id="form3Example3" class="form-control form-control-lg"
+                  <label class="form-label" for="form3Example3">Username</label>
+                  <input type="text" id="username" name="username" placeholder="Username" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />
                 </div>
       
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                   <label class="form-label" for="form3Example4">Password</label>
-                  <input type="password" id="form3Example4" class="form-control form-control-lg"
+                  <input type="password" id="password" name="password" placeholder="Password" class="form-control form-control-lg"
                     placeholder="Enter password" />
                 </div>
       
                 <div class="text-center text-lg-start mt-4 pt-2">
-                  <button type="button" class="btn btn-primary btn-lg"
+                  <button type="submit" class="btn btn-primary btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                      class="link-danger">Register</a></p>
                 </div>
       
               </form>

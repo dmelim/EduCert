@@ -29,36 +29,62 @@ let students = [
         certificate: "diogo_melim.pdf"
 
     }
-] 
+]
+
+var user ;
 
 app.get("/", (req,res) => {
-    res.render("index.ejs", {students});
+    res.render("index.ejs", {students, user});
 });
 
 app.get("/new-data", (req,res) => {
-    res.render("newData.ejs");
+    res.render("newData.ejs", {user});
 });
 
 app.get("/search", (req,res) => {
-    res.render("search.ejs");
+    res.render("search.ejs", {user});
 });
 
 app.get("/login", (req,res) => {
-    res.render("login.ejs");
+    res.render("login.ejs", {user});
+});
+
+app.post("/login", (req, res) =>{
+    const {username, password} = req.body;
+    if (username === "admin" && password === "admin") {
+        user = "admin";
+        res.redirect("/");
+    } else {
+        res.redirect("/login");
+        console.log("Not a valid User")
+        user = null
+    }
+    
 });
 
 app.get("/new-data/one-entry", (req,res) => {
-    res.render("aluno.ejs");
+    if (user === "admin"){
+        res.render("aluno.ejs", {user});}
+    else {
+        console.log("Not a valid user")
+        res.status(401).send("Unauthorized")
+    }
 });
  
 app.post("/student", (req,res) => {
     const { name, num_student, class_final, Institution, Course, conc_date, certificate } = req.body;
-    alunos.push({name, num_student, class_final, Institution, Course, conc_date, certificate});
+    students.push({name, num_student, class_final, Institution, Course, conc_date, certificate});
     res.redirect("/");
 });
 
 app.get("/new-data/multiple-entry", (req, res) => {
-    res.render("excel_import.ejs");
+    if (user === "admin"){
+        res.render("excel_import.ejs", {user});}
+    else {
+        console.log("Not a valid user")
+        res.status(401).send("Unauthorized")
+    }
+    
 })
 
 app.post("/excel_import", (req, res) => {
