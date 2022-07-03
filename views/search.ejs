@@ -10,17 +10,24 @@
 </head>
 <body class="background-body">
 
-    <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">EduCert</a>
-          <div class="nav text-color-white">
-            <a class="nav-link  active" aria-current="page" href="/">Home</a>
-            <a class="nav-link " href="/new-data">New Data</a>
-            <a class="nav-link " href="/search">Search</a>
-            <a class="nav-link " href="/login">Login</a>
-        </div>
+  <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">EduCert</a>
+        <div class="nav text-color-white">
+          <a class="nav-link white active" aria-current="page" href="/">Home</a>
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">New Data</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item " href="/new-data/one-entry">One Entry</a>
+              <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
+            </div>
+          </div>
+          <a class="nav-link white" href="/search">Search</a>
+          <a class="nav-link white" href="/login">Login</a>
       </div>
-    </nav>
+      
+    </div>
+</nav>
 
       <div class="container-fluid container-background pt-5 pb-5 d-flex align-items-center justify-content-center">
         <div class="px-4 pt-5 pb-5 text-center ">
