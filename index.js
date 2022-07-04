@@ -33,6 +33,11 @@ let students = [
 
 var user ;
 
+app.get("/logout", (req,res) => {
+    user = null;
+    res.redirect("/");
+});
+
 app.get("/", (req,res) => {
     res.render("index.ejs", {students, user});
 });

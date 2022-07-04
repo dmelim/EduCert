@@ -11,6 +11,7 @@
 </head>
 
 <body class="background-body">
+
     <% if (user === "admin") { %>
         <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
             <div class="container-fluid">
@@ -25,7 +26,12 @@
                     </div>
                   </div>
                   <a class="nav-link white" href="/search">Search</a>
-                  <a class="nav-link white" href="#">Admin</a>
+                  <div class="dropdown">
+                    <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item " href="/logout">Log Out</a>
+                    </div>
+                  </div>
               </div>
             </div>
         </nav>
@@ -44,7 +50,7 @@
     <div class="container-background"> 
         <h1 class="d-flex justify-content-center h1-color">Add Student Information</h1>
         <div class="container-fluid d-flex form-adjust">
-                <form action="/aluno" method="Post" class="form-control">
+                <form action="/student" method="Post" class="form-control">
                     <section>
                         <label for="name">Student Name</label>
                         <input type="text" class="form-control " id="name" placeholder="name" name="name">
@@ -78,10 +84,26 @@
                         
             </div>
             <div class="container-fluid d-flex justify-content-center m-3">    
-                <button type='button' id="sendHashButton" onclick="send()" class="btn btn-primary me-3">
+                <button type='button' id="sendHashButton" onclick="send()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary me-3">
                                     Send
                                 </button>                
-                <div id="responseText"></div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" >
+                    <p class="m-2" id="responseText">Loading...</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
                 <a href="/" class="btn btn-primary me-3">Back to Index</a>
             </div>
         </div>     

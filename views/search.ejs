@@ -24,7 +24,12 @@
                 </div>
               </div>
               <a class="nav-link white" href="/search">Search</a>
-              <a class="nav-link white" href="#">Admin</a>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item " href="/logout">Log Out</a>
+                </div>
+              </div>
           </div>
         </div>
     </nav>
@@ -48,12 +53,28 @@
             <p class="lead mb-4 text-white">Chose your file</p>
             <div class="col mx-auto">
               <input type="file" class="form-control" id="certificate" placeholder="certificate" name="certificate">
-              <button type="button" class="btn btn-primary mt-3" id="findHashButton" onclick="find()">Search</button>
+              <button type="button" class="btn btn-primary mt-3" id="findHashButton" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="find()">Search</button>
             </div>
           </div>
         </div>
       </div>
-      <div id="responseText"></div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <p class="m-2" id="responseText">Loading...</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <footer class="mt-auto text-white text-center background-footer">
         <p>EduCert Prototype.</p>
       </footer>
