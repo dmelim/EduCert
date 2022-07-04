@@ -97,7 +97,7 @@ app.post("/excel_import", (req, res) => {
     const object1 = JSON.parse(Object.keys(req.body));
     console.log(object1);
     const { name, num_student, Institution, Course, certificate } = object1;
-    alunos.push(object1);
+    students.push(object1);
     res.redirect("/");
 })
 
