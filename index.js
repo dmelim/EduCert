@@ -1,13 +1,14 @@
 const express = require('express');
-const app =  express();
+const app = express();
 const path = require('path');
-if(typeof require !== 'undefined') XLSX = require('xlsx');
+const db = require("./public/database.js")
+if (typeof require !== 'undefined') XLSX = require('xlsx');
 
 // const { v4: uuid } = require('uuid');
 
 const workbook = XLSX.readFile('test.xlsx');
 
-app.use(express.urlencoded({extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
@@ -18,44 +19,33 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
 
-let students = [
-    {
-        name: "Diogo",
-        num_student: "1234",
-        class_final: "14",
-        Institution: "ISCAC",
-        Course: "MCTES",
-        conc_date: "14 January 2021",
-        certificate: "diogo_melim.pdf"
+const insert = 'INSERT INTO user (name, student_number, final_class , institution, course, conc_date, certificate_hash, email, password) VALUES (?,?,?,?,?,?,?,?,?)'
 
-    }
-]
+var user;
 
-var user ;
-
-app.get("/logout", (req,res) => {
+app.get("/logout", (req, res) => {
     user = null;
     res.redirect("/");
 });
 
-app.get("/", (req,res) => {
-    res.render("index.ejs", {students, user});
+app.get("/", (req, res) => {
+    res.render("index.ejs", { user });
 });
 
-app.get("/new-data", (req,res) => {
-    res.render("newData.ejs", {user});
+app.get("/new-data", (req, res) => {
+    res.render("newData.ejs", { user });
 });
 
-app.get("/search", (req,res) => {
-    res.render("search.ejs", {user});
+app.get("/search", (req, res) => {
+    res.render("search.ejs", { user });
 });
 
-app.get("/login", (req,res) => {
-    res.render("login.ejs", {user});
+app.get("/login", (req, res) => {
+    res.render("login.ejs", { user });
 });
 
-app.post("/login", (req, res) =>{
-    const {username, password} = req.body;
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
     if (username === "admin" && password === "admin") {
         user = "admin";
         res.redirect("/");
@@ -64,42 +54,56 @@ app.post("/login", (req, res) =>{
         console.log("Not a valid User")
         user = null
     }
-    
+
 });
 
-app.get("/new-data/one-entry", (req,res) => {
-    if (user === "admin"){
-        res.render("aluno.ejs", {user});}
+app.get("/new-data/one-entry", (req, res) => {
+    if (user === "admin") {
+        res.render("aluno.ejs", { user });
+    }
     else {
         console.log("Not a valid user")
-        res.status(401).send("Unauthorized")
+        res.status(401).end()
     }
 });
- 
-app.post("/student", (req,res) => {
+
+app.post("/student", (req, res) => {
     const { name, num_student, class_final, Institution, Course, conc_date, certificate } = req.body;
-    students.push({name, num_student, class_final, Institution, Course, conc_date, certificate});
+    db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, certificate ,`${name}@example.com`,`${name}${num_student}`])
     res.redirect("/");
 });
 
 app.get("/new-data/multiple-entry", (req, res) => {
-    if (user === "admin"){
-        res.render("excel_import.ejs", {user});}
+    if (user === "admin") {
+        res.render("excel_import.ejs", { user });
+    }
     else {
         console.log("Not a valid user")
-        res.status(401).send("Unauthorized")
+        res.status(401).end()
     }
-    
+
 })
 
 app.post("/excel_import", (req, res) => {
-    console.log(Object.keys(req.body));
     const object1 = JSON.parse(Object.keys(req.body));
-    console.log(object1);
-    const { name, num_student, Institution, Course, certificate } = object1;
-    students.push(object1);
+    const { name, num_student, class_final, Institution, Course, conc_date, certificate } = object1;
+    console.log(object1.class_final)
     res.redirect("/");
 })
+
+app.get("/database", (req, res) => {
+    let sql = "select * from user"
+    let params = []
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+            res.status(400).json({ "error": err.message })
+            return
+        } else {
+            res.render("database.ejs", { rows, user });
+        }
+    })
+})
+
 
 app.listen(3000, () => {
     console.log("http://localhost:3000/");
