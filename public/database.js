@@ -18,9 +18,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             course text,
             conc_date date,
             certificate_hash text,  
-            email text UNIQUE, 
-            password text, 
-            CONSTRAINT email_unique UNIQUE (email)
+            email text , 
+            password text
             )`,
         (err) => {
             if (err) {

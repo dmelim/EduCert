@@ -51,14 +51,15 @@
     
       <div class="container-fluid container-background pt-5 pb-5 d-flex align-items-center justify-content-center">
         <div class="px-4 pt-5 pb-5 text-center ">
-          <form action="/excel_import" method="Post"></form>
+          <form action="/excel_import" method="Post">
             <h3 class="mb-3 h1-color">Add an excel file to upload multiple students information</h1>
             <input type="file" class="form-control" name="fileUpload" id="fileUpload" lang="en">
             <div class="col mx-auto">
+              <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+              <!--<a href="http://localhost:3000/">Return Home</a>
               <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 See Data Preview
-              </button>
-              <button class="btn btn-primary mt-3" id="button_import" lang="en">Submit</button>
+              </button>-->
             </div>
           </form>
         </div>

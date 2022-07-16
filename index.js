@@ -21,7 +21,10 @@ app.set('view engine', 'ejs');
 
 const insert = 'INSERT INTO user (name, student_number, final_class , institution, course, conc_date, certificate_hash, email, password) VALUES (?,?,?,?,?,?,?,?,?)'
 
-var user;
+var user = "admin";
+
+let sql = "select * from user"
+let params = []
 
 app.get("/logout", (req, res) => {
     user = null;
@@ -85,15 +88,12 @@ app.get("/new-data/multiple-entry", (req, res) => {
 })
 
 app.post("/excel_import", (req, res) => {
-    const object1 = JSON.parse(Object.keys(req.body));
-    const { name, num_student, class_final, Institution, Course, conc_date, certificate } = object1;
-    console.log(object1.class_final)
-    res.redirect("/");
-})
+    const userExcelData = JSON.parse(Object.keys(req.body));
+    const { name, num_student, class_final, Institution, Course, conc_date, certificate } = userExcelData;
+    db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, certificate ,`${name}@example.com`,`${name}${num_student}`])
+});
 
 app.get("/database", (req, res) => {
-    let sql = "select * from user"
-    let params = []
     db.all(sql, params, (err, rows) => {
         if (err) {
             res.status(400).json({ "error": err.message })
