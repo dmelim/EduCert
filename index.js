@@ -91,6 +91,7 @@ app.post("/excel_import", (req, res) => {
     const userExcelData = JSON.parse(Object.keys(req.body));
     const { name, num_student, class_final, Institution, Course, conc_date, certificate } = userExcelData;
     db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, certificate ,`${name}@example.com`,`${name}${num_student}`])
+    console.log(userExcelData)
 });
 
 app.get("/database", (req, res) => {

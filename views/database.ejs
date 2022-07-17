@@ -23,6 +23,7 @@
                       <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
                     </div>
                   </div>
+                  <a class="nav-link white" href="/database">Database</a>
                   <a class="nav-link white" href="/search">Search</a>
                   <div class="dropdown">
                     <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
@@ -65,11 +66,13 @@
                     <td><%= rows[key].institution %></td>
                     <td><%= rows[key].course %></td>
                     <td><%= rows[key].conc_date %></td>
-                    <td><%= rows[key].certificate_hash %></td>
+              <% if (rows[key].certificate_hash === "" ) { %> <td><button>Hello</button> <% } else { %> </td> <td><%= rows[key].certificate_hash %></td> <% } %>
                     <td><%= rows[key].email %></td>
                 </tr>
                 <% } %>
             </table>
-        </div>   
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+       
 </body>
 </html>

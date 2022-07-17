@@ -25,6 +25,7 @@
                   <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
                 </div>
               </div>
+              <a class="nav-link white" href="/database">Database</a>
               <a class="nav-link white" href="/search">Search</a>
               <div class="dropdown">
                 <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
@@ -51,11 +52,11 @@
     
       <div class="container-fluid container-background pt-5 pb-5 d-flex align-items-center justify-content-center">
         <div class="px-4 pt-5 pb-5 text-center ">
-          <form action="/excel_import" method="Post">
+          <form action="http://localhost:3000/new-data/multiple-entry" method="Get">
             <h3 class="mb-3 h1-color">Add an excel file to upload multiple students information</h1>
             <input type="file" class="form-control" name="fileUpload" id="fileUpload" lang="en">
             <div class="col mx-auto">
-              <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+              <button class="btn btn-primary mt-3" id="dataSent" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Data</button>
               <!--<a href="http://localhost:3000/">Return Home</a>
               <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 See Data Preview
@@ -74,14 +75,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">The following information was submited successfully!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" >
         <p class="m-2" id="jsonObject"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary buttonHREF" data-bs-dismiss="modal"><a href="http://localhost:3000/new-data/multiple-entry">Close</a></button>
       </div>
     </div>
   </div>

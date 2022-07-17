@@ -75,3 +75,8 @@ th, td {
   padding-left: 30px;
   padding-right: 40px;
 }
+
+.buttonHREF a {
+  text-decoration: none;
+  color: white;
+} 

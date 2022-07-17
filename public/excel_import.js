@@ -30,7 +30,7 @@
     });
 
 
-$("button").click(function(e) {
+$("#dataSent").click((e) => {
     e.preventDefault();
     // Este ciclo garante que o node não fique muito consfuso com o objeto, envia um de cada vez e depois a chegada é processado. Eventualmente deverá ser necessário ter que ver como fazer isto melhor
     for (let i = 0; i< globalJsonObject.length; i++){
