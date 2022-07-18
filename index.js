@@ -21,6 +21,8 @@ app.set('view engine', 'ejs');
 
 const insert = 'INSERT INTO user (name, student_number, final_class , institution, course, conc_date, certificate_hash, email, password) VALUES (?,?,?,?,?,?,?,?,?)'
 
+const replace = 'UPDATE user SET certificate_hash=? WHERE id=?'
+
 var user = "admin";
 
 let sql = "select * from user"
@@ -71,8 +73,9 @@ app.get("/new-data/one-entry", (req, res) => {
 });
 
 app.post("/student", (req, res) => {
-    const { name, num_student, class_final, Institution, Course, conc_date, certificate } = req.body;
-    db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, certificate ,`${name}@example.com`,`${name}${num_student}`])
+    const { name, num_student, class_final, Institution, Course, conc_date, hash_number } = req.body;
+    console.log(name, num_student, class_final, Institution, Course, conc_date, hash_number)
+    db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, hash_number ,`${name}@example.com`,`${name}${num_student}`])
     res.redirect("/");
 });
 
@@ -91,8 +94,14 @@ app.post("/excel_import", (req, res) => {
     const userExcelData = JSON.parse(Object.keys(req.body));
     const { name, num_student, class_final, Institution, Course, conc_date, certificate } = userExcelData;
     db.run(insert, [name, num_student, class_final, Institution, Course, conc_date, certificate ,`${name}@example.com`,`${name}${num_student}`])
-    console.log(userExcelData)
 });
+
+app.post("/add-hash", (req, res) => {
+    const {ele_id, hash_number} = req.body
+    console.log(req.body)
+    db.run(replace, [hash_number, ele_id])
+    res.redirect("/database")
+})
 
 app.get("/database", (req, res) => {
     db.all(sql, params, (err, rows) => {

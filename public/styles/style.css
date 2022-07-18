@@ -70,13 +70,18 @@ body {
 
 th, td {
   border: 1px solid black;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 40px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 40%;
 }
 
 .buttonHREF a {
   text-decoration: none;
   color: white;
-} 
+}
+
+.control-width {
+  width: 80%;
+}
