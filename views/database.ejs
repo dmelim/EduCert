@@ -126,7 +126,7 @@
             <% } else { %>
             <td><%= rows[key].certificate_hash %></td>
             <% } %>
-            <td></td>
+            <% if (rows[key].on_blockchain === "true") { %> <td> <%= rows[key].on_blockchain %> </td> <% } else { %><td> <button class="btn btn-primary m-2"> Send to Blockchain</button> </td><% } %> 
             <td><%= rows[key].email %></td>
           </form>
         </tr>
