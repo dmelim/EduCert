@@ -87,27 +87,30 @@
         <% for (let key in rows ) {%>
         <tr class="element">
           <form action="/add-hash" method="Post">
-            <td><%= rows[key].id %>
+            <td>
+              <%= rows[key].id %>
               <input
-              type="text"
-              class="form-control"
-              id="ele_id"
-              placeholder="ele_id"
-              name="ele_id"
-              value="<%= rows[key].id %>"
-              hidden
-            /></td>
-            <td ><%= rows[key].name %></td>
+                type="text"
+                class="form-control"
+                id="ele_id"
+                placeholder="ele_id"
+                name="ele_id"
+                value="<%= rows[key].id %>"
+                hidden
+              />
+            </td>
+            <td><%= rows[key].name %></td>
             <td><%= rows[key].student_number %></td>
             <td><%= rows[key].final_class %></td>
             <td><%= rows[key].institution %></td>
             <td><%= rows[key].course %></td>
             <td><%= rows[key].conc_date %></td>
-            <% if (rows[key].certificate_hash === null ) { %>
+            <% if (rows[key].certificate_hash === "" ||
+            rows[key].certificate_hash === null) { %>
             <td>
               No hash found, add one.
               <input
-                class="form-control m-2"
+                class="form-control"
                 type="file"
                 name="certificate"
                 id="certificate"
@@ -119,14 +122,19 @@
                 id="hash_number"
                 placeholder="hash_number"
                 name="hash_number"
-                
+                hidden
               />
               <button class="btn btn-primary m-2">Add Hash</button>
             </td>
             <% } else { %>
             <td><%= rows[key].certificate_hash %></td>
+            <% } %> <% if (rows[key].on_blockchain === "true") { %>
+            <td><%= rows[key].on_blockchain %></td>
+            <% } else { %>
+            <td>
+              <button class="btn btn-primary m-2">Send to Blockchain</button>
+            </td>
             <% } %>
-            <% if (rows[key].on_blockchain === "true") { %> <td> <%= rows[key].on_blockchain %> </td> <% } else { %><td> <button class="btn btn-primary m-2"> Send to Blockchain</button> </td><% } %> 
             <td><%= rows[key].email %></td>
           </form>
         </tr>

@@ -1,120 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Comment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://localhost:3000/public/styles/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="http://localhost:3000/public/styles/style.css"
+    />
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
-</head>
+  </head>
 
-<body class="background-body">
-
+  <body class="background-body">
     <% if (user === "admin") { %>
-        <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">EduCert</a>
-                <div class="nav text-color-white">
-                  <a class="nav-link white active" aria-current="page" href="/">Home</a>
-                  <div class="dropdown">
-                    <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">New Data</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item " href="/new-data/one-entry">One Entry</a>
-                      <a class="dropdown-item " href="/new-data/multiple-entry">Multiple Entry</a>
-                    </div>
-                  </div>
-                  <a class="nav-link white" href="/database">Database</a>
-                  <a class="nav-link white" href="/search">Search</a>
-                  <div class="dropdown">
-                    <a class="nav-link dropdown-toggle white" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item " href="/logout">Log Out</a>
-                    </div>
-                  </div>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">EduCert</a>
+        <div class="nav text-color-white">
+          <a class="nav-link white active" aria-current="page" href="/">Home</a>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle white"
+              href="#"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >New Data</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/new-data/one-entry">One Entry</a>
+              <a class="dropdown-item" href="/new-data/multiple-entry"
+                >Multiple Entry</a
+              >
+            </div>
+          </div>
+          <a class="nav-link white" href="/database">Database</a>
+          <a class="nav-link white" href="/search">Search</a>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle white"
+              href="#"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Admin</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/logout">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <%} else { %>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">EduCert</a>
+        <div class="nav text-color-white">
+          <a class="nav-link white active" aria-current="page" href="/">Home</a>
+          <a class="nav-link white" href="/search">Search</a>
+          <a class="nav-link white" href="/login">Login</a>
+        </div>
+      </div>
+    </nav>
+    <% } %>
+    <div class="container-background">
+      <h1 class="d-flex justify-content-center h1-color">
+        Add Student Information
+      </h1>
+      <div class="container-fluid d-flex form-adjust">
+        <form action="/student" method="Post" class="form-control">
+          <section>
+            <label for="name">Student Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="name"
+              name="name"
+            />
+          </section>
+          <section>
+            <label for="num_student">Student Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="num_student"
+              placeholder="num_student"
+              name="num_student"
+            />
+          </section>
+          <section>
+            <label for="class_final">Final Grade</label>
+            <input
+              type="text"
+              class="form-control"
+              id="class_final"
+              placeholder="class_final"
+              name="class_final"
+            />
+          </section>
+          <section>
+            <label for="Institution">University</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Institution"
+              placeholder="Institution"
+              name="Institution"
+            />
+          </section>
+          <section>
+            <label for="Course">Course</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Course"
+              placeholder="Course"
+              name="Course"
+            />
+          </section>
+          <section>
+            <label for="conc_date">Conclusion Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="conc_date"
+              placeholder="conc_date"
+              name="conc_date"
+            />
+          </section>
+          <section>
+            <label for="certificate">Student certificate</label>
+            <input
+              type="file"
+              class="form-control"
+              id="certificate"
+              placeholder="certificate"
+              name="certificate"
+              class="custom-file-input"
+              oninput="hashingFile()"
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="hash_number"
+              placeholder="hash_number"
+              name="hash_number"
+              hidden
+            />
+          </section>
+          <button
+            type="button"
+            id="sendHashButton"
+            onclick="send()"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            class="btn btn-primary form-control mt-3"
+          >
+            Send
+          </button>
+          <button class="btn btn-primary form-control mt-3">Submit</button>
+        </form>
+      </div>
+      <div class="container-fluid d-flex justify-content-center m-3">
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p class="m-2" id="responseText">Loading...</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
-        </nav>
-        <%} else { %>
-          <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">EduCert</a>
-                <div class="nav text-color-white">
-                  <a class="nav-link white active" aria-current="page" href="/">Home</a>
-                  <a class="nav-link white" href="/search">Search</a>
-                  <a class="nav-link white" href="/login">Login</a>
-              </div>
-            </div>
-        </nav>
-          <% } %>
-    <div class="container-background"> 
-        <h1 class="d-flex justify-content-center h1-color">Add Student Information</h1>
-        <div class="container-fluid d-flex form-adjust">
-                <form action="/student" method="Post" class="form-control">
-                    <section>
-                        <label for="name">Student Name</label>
-                        <input type="text" class="form-control " id="name" placeholder="name" name="name">
-                    </section>
-                    <section>
-                        <label for="num_student">Student Number</label>
-                        <input type="text" class="form-control" id="num_student" placeholder="num_student" name="num_student">
-                    </section>
-                    <section>
-                        <label for="class_final">Final Grade</label>
-                        <input type="text" class="form-control" id="class_final" placeholder="class_final" name="class_final">
-                    </section>
-                    <section>
-                        <label for="Institution">University</label>
-                        <input type="text" class="form-control" id="Institution" placeholder="Institution" name="Institution">
-                    </section>
-                    <section>
-                        <label for="Course">Course</label>
-                        <input type="text" class="form-control" id="Course" placeholder="Course" name="Course">
-                    </section>
-                    <section>
-                        <label for="conc_date">Conclusion Date</label>
-                        <input type="date" class="form-control" id="conc_date" placeholder="conc_date" name="conc_date">
-                    </section>
-                    <section>
-                        <label for="certificate">Student certificate</label>
-                        <input type="file" class="form-control" id="certificate" placeholder="certificate" name="certificate" class="custom-file-input" oninput="hashingFile()">
-                        <input type="text" class="form-control" id="hash_number" placeholder="hash_number" name="hash_number" hidden>
-                    </section>
-                    <button class="btn btn-primary form-control mt-3">Submit</button>
-                </form>
-                        
-            </div>
-            <div class="container-fluid d-flex justify-content-center m-3">    
-                <button type='button' id="sendHashButton" onclick="send()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary me-3">
-                                    Send
-                                </button>                
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" >
-                    <p class="m-2" id="responseText">Loading...</p>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-                <a href="/" class="btn btn-primary me-3">Back to Index</a>
-            </div>
-        </div>     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+          </div>
+        </div>
+        <a href="/" class="btn btn-primary me-3">Back to Index</a>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script src="http://localhost:3000/public/sha256.js"></script>
     <script src="http://localhost:3000/public/web3.min.js"></script>
     <script src="http://localhost:3000/public/notaryWebLib.js"></script>
     <script src="http://localhost:3000/public/main.js"></script>
     <script src="http://localhost:3000/public/hashAlgorithm.js"></script>
-</body>
-
+  </body>
 </html>
