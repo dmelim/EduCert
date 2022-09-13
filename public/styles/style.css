@@ -1,36 +1,35 @@
 body {
-  margin:0;
+  margin: 0;
 }
 
 .container-background {
-    height: 89vh;
-    width: 100%;
-    background-image: url("http://localhost:3000/public/static/BackGroundSite.svg");
-    background-position: center;
-    background-size: cover;
-    margin: 0%;
+  height: 89vh;
+  width: 100%;
+  background-image: url("http://localhost:3000/public/static/BackGroundSite.svg");
+  background-position: center;
+  background-size: cover;
+  margin: 0%;
+}
+.background-body {
+  background-color: #00062a;
+}
+.navbar {
+  margin-left: 4em;
+  margin-right: 4em;
+  font-size: 1.2rem;
+}
+.navbar-color {
+  background-color: #00062a;
+}
+.white {
+  color: white;
+  text-decoration: none;
+}
 
-  }
-  .background-body {
-    background-color: #00062A;
-  }
-  .navbar {
-    margin-left: 4em;
-    margin-right: 4em;
-    font-size: 1.2rem;
-  }
-  .navbar-color {
-    background-color: #00062A;
-  }
-  .white {
-    color: white;
-    text-decoration: none;
-  }
-
-  .no-padding {
-    padding: 0;
-    margin: 0;
-  }
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
 
 .pad-mar {
   padding: 0 1.5em 0 1.5em;
@@ -39,10 +38,10 @@ body {
 
 .form-adjust {
   width: 25%;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
   padding: 0%;
   border-radius: 25px;
-
 }
 
 .h1-color {
@@ -64,11 +63,12 @@ body {
   margin: 1em;
   padding: 2em;
   background-color: aliceblue;
-  border: #00062A;
-
+  border: #00062a;
+  overflow: scroll;
 }
 
-th, td {
+th,
+td {
   border: 1px solid black;
   padding-top: 1em;
   padding-bottom: 1em;

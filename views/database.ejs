@@ -15,7 +15,7 @@
       href="http://localhost:3000/public/styles/style.css"
     />
     <script src="http://localhost:3000/public/jquery-3.6.0.min.js"></script>
-    <title>Document</title>
+    <title>Educert</title>
   </head>
   <body class="background-body">
     <% if (user === "admin") { %>
@@ -132,7 +132,13 @@
             <td><%= rows[key].on_blockchain %></td>
             <% } else { %>
             <td>
-              <button class="btn btn-primary m-2">Send to Blockchain</button>
+              <a
+                class="btn btn-primary m-2"
+                id="<%= rows[key].id %>"
+                onclick="textFunc(event)"
+              >
+                Send to Blockchain
+              </a>
             </td>
             <% } %>
             <td><%= rows[key].email %></td>
@@ -146,7 +152,11 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="http://localhost:3000/public/sendToBlch.js"></script>
     <script src="http://localhost:3000/public/sha256.js"></script>
     <script src="http://localhost:3000/public/hashAlgorithm.js"></script>
+    <script src="http://localhost:3000/public/web3.min.js"></script>
+    <script src="http://localhost:3000/public/notaryWebLib.js"></script>
+    <script src="http://localhost:3000/public/main.js"></script>
   </body>
 </html>

@@ -132,3 +132,6 @@ dist
 *.xlsx
 *.pdf
 *.md
+
+*.xlsx
+*.pdf
