@@ -20,7 +20,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 const insert =
-  "INSERT INTO user (name, student_number, final_class , institution, course, conc_date, certificate_hash, email, password) VALUES (?,?,?,?,?,?,?,?,?)";
+  "INSERT INTO user (name, student_number, final_class , institution, course, conc_date, certificate_hash, on_blockchain, email, password) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 const replace = "UPDATE user SET certificate_hash=? WHERE id=?";
 const replaceOnBlockchain = "UPDATE user SET on_blockchain=? WHERE id=?";
@@ -99,6 +99,7 @@ app.post("/student", (req, res) => {
     Course,
     conc_date,
     hash_number,
+    "true",
     `${name}@example.com`,
     `${name}${num_student}`,
   ]);
